@@ -38,6 +38,40 @@ refactor: タスク一覧コンポーネントを整理
 - `.env` などシークレットを含むファイルはコミットしない。
 - コミット前に `git status` で意図しないファイルが含まれていないか確認する。
 
+## デプロイ先
+
+https://minopon.github.io/task-board/
+
+## 技術スタック
+
+| カテゴリ | 技術 |
+|---|---|
+| UIライブラリ | React 19 |
+| ビルドツール | Vite 8 |
+| 言語 | JavaScript (JSX) |
+| スタイリング | CSS (vanilla) |
+| 状態管理 | React useState |
+| 永続化 | localStorage |
+| パッケージ管理 | npm |
+| ホスティング | GitHub Pages |
+
+## コンポーネント命名規約
+
+- **ファイル名・コンポーネント名**: PascalCase（例: `TaskItem.jsx`）
+- **配置場所**: `src/components/` 以下に1ファイル1コンポーネントで配置
+- **props**: camelCase（例: `onToggle`, `onDelete`）
+- **イベントハンドラのprop名**: `on` プレフィックスを付ける（例: `onAdd`, `onToggle`）
+- **コンポーネント内のハンドラ関数**: `handle` プレフィックスを付ける（例: `handleSubmit`）
+
+### 現在のコンポーネント構成
+
+```
+App
+├── TaskInput   # テキスト入力フォーム
+└── TaskList    # タスク一覧
+    └── TaskItem    # タスク1行（チェックボックス・削除ボタン）
+```
+
 ## 開発ガイドライン
 
 - コメントは「なぜ」そうしているかが非自明な場合のみ書く。何をしているかはコードから読み取れるようにする。
